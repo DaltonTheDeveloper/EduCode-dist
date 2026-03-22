@@ -1,0 +1,75 @@
+{
+  "name": "educode-media",
+  "displayName": "EduCode Media Player",
+  "description": "Built-in YouTube and media player for EduCode",
+  "version": "1.0.0",
+  "publisher": "educode",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "educode-media",
+          "title": "Media Player",
+          "icon": "media/play.svg"
+        }
+      ]
+    },
+    "views": {
+      "educode-media": [
+        {
+          "type": "webview",
+          "id": "educode.mediaPlayer",
+          "name": "YouTube Player"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "educode.media.playUrl",
+        "title": "EduCode: Play YouTube URL"
+      },
+      {
+        "command": "educode.media.playSelection",
+        "title": "EduCode: Play Selected URL"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "educode.media.playUrl"
+        },
+        {
+          "command": "educode.media.playSelection"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "educode.media.playUrl",
+        "key": "ctrl+shift+y",
+        "mac": "cmd+shift+y"
+      }
+    ]
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/vscode": "^1.110.0"
+  }
+}

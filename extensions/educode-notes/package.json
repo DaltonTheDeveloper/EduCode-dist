@@ -1,0 +1,111 @@
+{
+  "name": "educode-notes",
+  "displayName": "EduCode Notes",
+  "description": "Built-in note-taking panel for EduCode",
+  "version": "1.0.0",
+  "publisher": "educode",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "educode-notes",
+          "title": "Notes",
+          "icon": "media/note.svg"
+        }
+      ]
+    },
+    "views": {
+      "educode-notes": [
+        {
+          "type": "webview",
+          "id": "educode.notesEditor",
+          "name": "Notes"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "educode.notes.new",
+        "title": "EduCode: New Note"
+      },
+      {
+        "command": "educode.notes.export",
+        "title": "EduCode: Export Notes to File"
+      },
+      {
+        "command": "educode.notes.timestamp",
+        "title": "EduCode: Insert Timestamp"
+      },
+      {
+        "command": "educode.notes.setObsidianVault",
+        "title": "EduCode: Set Obsidian Vault Path"
+      },
+      {
+        "command": "educode.notes.syncToObsidian",
+        "title": "EduCode: Sync All Notes to Obsidian"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "educode.notes.new"
+        },
+        {
+          "command": "educode.notes.export"
+        },
+        {
+          "command": "educode.notes.timestamp"
+        },
+        {
+          "command": "educode.notes.setObsidianVault"
+        },
+        {
+          "command": "educode.notes.syncToObsidian"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "EduCode Notes",
+      "properties": {
+        "educode.notes.obsidianVaultPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to your Obsidian vault folder. Notes will auto-sync as .md files into an 'EduCode' subfolder."
+        },
+        "educode.notes.autoSyncToObsidian": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically sync notes to Obsidian vault when they are created or updated."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "educode.notes.new",
+        "key": "ctrl+shift+n",
+        "mac": "cmd+shift+n"
+      }
+    ]
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/vscode": "^1.110.0"
+  }
+}

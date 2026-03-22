@@ -1,0 +1,46 @@
+{
+  "name": "educode-welcome",
+  "displayName": "EduCode Welcome",
+  "description": "Custom welcome screen for EduCode IDE",
+  "version": "1.0.0",
+  "publisher": "educode",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "educode.welcome.show",
+        "title": "EduCode: Show Welcome"
+      }
+    ],
+    "configuration": {
+      "title": "EduCode Welcome",
+      "properties": {
+        "educode.welcome.showOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the EduCode welcome screen on startup"
+        }
+      }
+    }
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/vscode": "^1.110.0"
+  }
+}

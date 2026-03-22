@@ -1,0 +1,9 @@
+node_modules/
+out/
+*.vsix
+*.dmg
+.DS_Store
+.build/
+.env
+.env.*
+*.tsbuildinfo

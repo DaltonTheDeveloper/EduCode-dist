@@ -102,9 +102,9 @@ Notes are saved as Markdown files in an `EduCode/` subfolder inside your vault:
 ```
 MyVault/
 ├── EduCode/
-│   ├── Lecture 1 - Pointers.md
-│   ├── Lab Notes.md
-│   └── Study Guide.md
+│   ├── My First Note.md
+│   ├── Chapter 3 Notes.md
+│   └── Project Ideas.md
 ├── ... (your other Obsidian notes)
 ```
 
